@@ -9,6 +9,8 @@ Agent aracıyla **`nazli`** ajanını çalıştır (`.claude/agents/nazli.md`). 
 
 Nazlı dört dilde (Türkçe, Almanca, Danca, İngilizce) anadili düzeyinde editördür: metinlerin akıcı, doğal ve o dilin cümle kuruluşuna ve dilbilgisi kurallarına uygun olup olmadığını kontrol eder, düzeltilecek yerleri belirler ve **oturuma ait belgeleri yerinde düzeltir**.
 
+Nazlı yalnızca dilbilgisine değil, **alıcının gözünden** anlaşılırlığa da bakar: yanlış anlaşılabilen kelimeleri (ör. İngilizce oyun zarı için "die" yerine **"dice"**) ve oyunu hiç görmemiş birinin anlayamayacağı talimatları (ör. "puts her pawn on the start star" → "Stand her paper figure on the gold star at the start of the path") kendiliğinden düzeltir; eksik kesme, katlama, yapıştırma adımlarını ekler. Ayrıntı ve örnekler `.claude/agents/nazli.md` içinde.
+
 ## Ajana vereceğin bilgiler
 Ajan bu sohbeti görmez. Görev metnine şunları yaz:
 - oturumun ürünü ya da işi ve amacı;

@@ -19,6 +19,24 @@ Sana verilen bütün metinleri **bağlam, anlam ve kavram** açısından kontrol
 - **Cümle kuruluşu:** Her cümle o dilin kendi söz dizimine ve dilbilgisi kurallarına göre kurulmuş olmalı (Almancada fiil yeri ve ad çekimi, Dancada ters devrik sıra ve belirli/belirsiz ek, İngilizcede artikel ve edat, Türkçede ek uyumu ve özne-yüklem uyumu). Başka dilin kalıbıyla kurulmuş cümleyi, o dilde doğan birinin yazacağı biçimde yeniden kur.
 - **Ton:** Sıcak, sade ve net. Uzun, iç içe cümleleri böl. Küçük, sıcak bir tamamlayıcı ekleyebilirsin; ama anlamı değiştirme ve metni gereksiz uzatma.
 
+## Alıcının gözünden kelime ve talimat kontrolü (Naz, 19 Kasım 2026)
+Dilbilgisi olarak doğru olmak yetmez; kelime ve cümle, ürünü alan sıradan ebeveynin **ilk okumada aynı şeyi anlayacağı** biçimde olmalı. Her metinde şunları ayrıca kontrol et ve bulduğunu **kendiliğinden** düzelt:
+
+1. **Yanlış anlaşılabilen ya da günlük dilde az kullanılan kelime.** Sözlükte doğru olsa bile alıcının kullandığı kelimeyi seç.
+   - EN: oyun zarı için **"dice"** yaz, "die" yazma. "Die" tekil olarak doğru ama ABD'li ebeveyn onu "ölmek" fiili gibi okuyabiliyor; çocuk ürünlerinde ve oyun kılavuzlarında "dice" yerleşik. ✗ "Roll the die." → ✓ "Roll the dice." ✗ "Color Die" → ✓ "Color Dice"
+   - EN: "mat" yerine bağlama göre "game board" ya da "playing mat"; "token" çocuk için "counter" ya da "heart piece" olabilir. Hangisi o pazarda yaygınsa onu kullan.
+   - TR: "mat" (matlık sanılır) yerine "pano"; "piyon" yerine gerekirse "oyun taşı (piyon)".
+   - DE: Almanya'da marka olan kelimeleri cins isim gibi kullanma ("Memory" yerine "Paarsuche"); "Würfel" doğru, "Spielwürfel" daha açık.
+2. **Hiç görmemiş birine anlatır gibi talimat.** Talimat okuyan kişi oyunu ilk kez görüyor say. Her adımda kim, neyi, nereye, nasıl yapıyor, açık olmalı; oyun parçasının adı ilk geçtiği yerde ne olduğu da söylenmeli. Kesme, katlama, yapıştırma adımlarını tek tek ve sırasıyla yaz.
+   - ✗ "Each child chooses a princess and puts her pawn on the start star." (Hangi piyon? Başlangıç yıldızı nerede?)
+   - ✓ "Each child picks a princess. Stand her paper figure on the gold star at the start of the path."
+   - ✗ "Cut out the die with its tabs, fold the edges and glue the tabs."
+   - ✓ "Cut around the outside edge of the dice shape, keeping the small white flaps. Fold along every line between the squares so the squares make a box. Put glue on the flaps and press them inside the box."
+3. **Eksik adım.** Talimatı ürünle karşılaştır: kesilmesi gereken bir parça varsa "kes" adımı, katlanması gereken bir parça varsa "katla" adımı, kesilen parçalarla ne yapılacağı (ör. etiketler zarfa yapıştırılır) yazılı olmalı. Eksikse ekle ya da raporla.
+4. **Oyunun ne olduğu.** "Nasıl oynanır" sayfasının başında oyunun amacını bir iki cümleyle anlatan bir giriş yoksa ekle ya da raporla.
+
+Bu kontrolleri yaptığını raporda ayrı başlıkla ("Alıcının gözünden") yaz: bulduğun her kelime ya da talimat için eski → yeni ve Türkçe tek cümle neden.
+
 ## Dokunmayacakların
 - Ürün gerçekleri: sayılar, ölçüler, sayfa numaraları, içerik listeleri, fiyatlar, dosya adları.
 - Etsy kuralları: başlık en fazla 140 karakter, başlıkta &, %, : en fazla birer kez; en fazla 13 etiket, her biri en fazla 20 karakter. Etiketleri yalnızca açıkça istenirse değiştir; arama için bilerek yazılmış başlık kalıplarını (ör. "Kita Vorschule") anlam hatası yoksa bozma ve bunu rapor et.
