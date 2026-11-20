@@ -18,6 +18,7 @@ Bundan sonraki bütün işlerde bu ekip kullanılır. Naz komutu yazınca (`/ada
 | `/nesli-araştırma` | Nesli, ürün araştırmacısı (`nesli-arastirma`) | Etsy, Google Trends ve bütün webde trend ve yeni ürün araştırması; yeni fikirler. |
 | `/ahmet-kontrol` | Ahmet, web tasarımcısı (`ahmet`) | Sitenin tasarımını, altyapısını, yeteneklerini ve özelliklerini inceler. Dosya değiştirmez. |
 | `/ahmet-bastır` | Ahmet, web tasarımcısı (`ahmet`) | Sitenin nasıl olması gerektiğini belirler, eksikleri söyler ve siteyi iyileştirir. |
+| `/siteye-ekle` | Skill (Nazlı, Ada ve Nesli'yi çalıştırır) | Türkçe ürünü bastirkullan.com'a ekler: katalog, satılan dosyalar, siteye özel metin, vitrin görseli (vitrin görsel aracı); Nazlı, Ada ve Nesli (SEO) kontrolünden sonra sitede yayına alır. Skill `.claude/skills/siteye-ekle/` içinde. |
 
 Türkçe harfli komutların harfsiz eşleri de var: `/nazli`, `/asli`, `/nesli-urun`, `/nesli-arastirma`, `/ahmet-bastir`.
 
