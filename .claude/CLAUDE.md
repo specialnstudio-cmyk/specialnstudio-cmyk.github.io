@@ -6,7 +6,7 @@
 - Kalıcı hafıza `specialnstudio1` deposunun master dalındaki `HAFIZA.md` dosyasıdır: oturum başında oku, Naz bir tercih ya da karar bildirince `/hafıza` ile not ekle (talimat: `specialnstudio1/.claude/skills/hafiza/SKILL.md`).
 
 ## Ekip: komutlar ve ajanlar
-Bundan sonraki bütün işlerde bu ekip kullanılır. Naz komutu yazınca (`/ada` gibi) ilgili ajan çalışır; Naz yazmasa da işin sırası gelince ajanı kendin çalıştır. Komutlar `.claude/commands/`, ajanlar `.claude/agents/` içinde.
+Bundan sonraki bütün işlerde bu ekip kullanılır. Naz komutu yazınca (`/ada` gibi) ilgili ajan çalışır. **Ajanlar yalnızca Naz çağırınca ya da bir görevin sonunda, yayından önce bir kez çalışır; her değişiklikten sonra kendiliğinden çalıştırılmaz** (Naz, 19 Kasım 2026: ajan turları çok kaynak harcıyor). Küçük düzeltmeleri ana oturum kendisi yapar; görev bitince hangi ajanların bakmadığını Naz'a söyler, Naz isterse çağırır. Komutlar `.claude/commands/`, ajanlar `.claude/agents/` içinde.
 
 | Komut | Ajan | Ne yapar |
 | --- | --- | --- |
@@ -23,9 +23,9 @@ Bundan sonraki bütün işlerde bu ekip kullanılır. Naz komutu yazınca (`/ada
 
 Türkçe harfli komutların harfsiz eşleri de var: `/nazli`, `/asli`, `/nesli-urun`, `/nesli-arastirma`, `/ahmet-bastir`.
 
-Ne zaman kim:
-- Bir metin yazıldığında ya da çevrildiğinde, Etsy'ye ya da siteye yüklemeden önce: **Nazlı**. Nesli'nin ve Aslı'nın ürettiği metinler de Nazlı'dan geçer.
-- Bir tasarım (PDF, kart, oyun parçası, ilan görseli, sosyal medya görseli) üretildiğinde ya da değiştiğinde, yayından önce: **Ada**.
+Kim neye bakar (çağrıldığında ya da görev sonunda):
+- Metinler (yazılan, çevrilen; Etsy'ye ya da siteye yüklemeden önce): **Nazlı**. Nesli'nin ve Aslı'nın ürettiği metinler de Nazlı'dan geçer.
+- Bir tasarım (PDF, kart, oyun parçası, ilan görseli, sosyal medya görseli) yayından önce: **Ada**.
 - Bir ürün Etsy'de ilk kez listelenirken (ilanın tamamı ve taslak): **Nesli (Etsy)**. Yalnızca görsel ya da metin iyileştirilirken ve başka platformlarda: **Nesli (ürün)**. Ürün yayına çıkarken ve sosyal medya, reklam işlerinde: **Nesli**.
 - Yeni ürüne başlamadan ya da Naz "sıradaki ürün ne" diye sorunca: **Nesli (araştırma)**, `FIKIRLER.md` ile birlikte.
 - Bir web sitesi ya da satış sayfası işinde: önce **Ahmet (kontrol)**, sonra **Ahmet (bastır)**; sitenin hukuki belgeleri için **Aslı**.
