@@ -2,7 +2,8 @@
 
 - Naz ile Türkçe konuş. Almanca ya da İngilizce her metnin Türkçesini de yaz.
 - Ekip komutlarının ve ajanlarının **asıl kopyası `specialnstudio1` deposundadır** (`.claude/agents/`, `.claude/commands/`). Bu depodaki dosyalar oradan kopyalandı. Bir ajanı ya da komutu değiştireceksen önce `specialnstudio1` içinde değiştir, sonra bütün depolara aynen kopyala.
-- Ajan ve komut metinlerinde adı geçen `OTURUM_ISLERI.md`, `FIKIRLER.md`, `specialnstudio/` klasörü ve `etsy_lister/` yalnızca `specialnstudio1` deposundadır. O depo oturuma bağlıysa oradan oku; bağlı değilse o adımı atla ve bunu raporda söyle.
+- Ajan ve komut metinlerinde adı geçen `OTURUM_ISLERI.md`, `HAFIZA.md`, `FIKIRLER.md`, `specialnstudio/` klasörü ve `etsy_lister/` yalnızca `specialnstudio1` deposundadır. O depo oturuma bağlıysa oradan oku; bağlı değilse o adımı atla ve bunu raporda söyle.
+- Kalıcı hafıza `specialnstudio1` deposunun master dalındaki `HAFIZA.md` dosyasıdır: oturum başında oku, Naz bir tercih ya da karar bildirince `/hafıza` ile not ekle (talimat: `specialnstudio1/.claude/skills/hafiza/SKILL.md`).
 
 ## Ekip: komutlar ve ajanlar
 Bundan sonraki bütün işlerde bu ekip kullanılır. Naz komutu yazınca (`/ada` gibi) ilgili ajan çalışır; Naz yazmasa da işin sırası gelince ajanı kendin çalıştır. Komutlar `.claude/commands/`, ajanlar `.claude/agents/` içinde.
