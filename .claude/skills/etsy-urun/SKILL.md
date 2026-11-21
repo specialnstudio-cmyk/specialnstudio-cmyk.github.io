@@ -57,3 +57,6 @@ Görseller gelince planla gereken sayfaları (kapak sayfası, talimat, içindeki
 
 ## 9. Kapanış
 `OTURUM_ISLERI.md`'ye bu ürünün bölümünü yaz, ürünün güncel dosyalarını master'a aktar (kurallar `CLAUDE.md`'de). Naz'a tek mesajla söyle: taslak linki, neyin bittiği, onun yapacağı tek şey (taslağa bakıp yayınlamak) ve "oturumu kapatabilirsin".
+
+## Bu akış değişirse
+Naz'ın sabitlediği görsel kılavuz aynı adımları gösterir: `docs/naz-etsy-urun-yolu.html` (claude.ai'de "Etsy Ürün Yolu" sayfası, slug `f4cbb6d4-0bae-4d31-8ae1-c08b70d481c7`). Bu dosyada bir adım değişirse kılavuzu da aynı oturumda güncelle ve yeniden yayınla.
