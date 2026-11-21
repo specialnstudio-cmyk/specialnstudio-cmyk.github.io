@@ -19,9 +19,10 @@ Bundan sonraki bütün işlerde bu ekip kullanılır. Naz komutu yazınca (`/ada
 | `/nesli-araştırma` | Nesli, ürün araştırmacısı (`nesli-arastirma`) | Etsy, Google Trends ve bütün webde trend ve yeni ürün araştırması; yeni fikirler. |
 | `/ahmet-kontrol` | Ahmet, web tasarımcısı (`ahmet`) | Sitenin tasarımını, altyapısını, yeteneklerini ve özelliklerini inceler. Dosya değiştirmez. |
 | `/ahmet-bastır` | Ahmet, web tasarımcısı (`ahmet`) | Sitenin nasıl olması gerektiğini belirler, eksikleri söyler ve siteyi iyileştirir. |
+| `/etsy-ürün` | Yeni ürün akışı (skill `etsy-urun`) | Brief'ten Etsy taslağına sabit sıra, her adımda Naz'ın onayı. **Yalnızca `specialnstudio1` deposunda çalışır**: Etsy ürün oturumu yalnızca o depoyla açılır. Skill `.claude/skills/etsy-urun/` içinde. |
 | `/siteye-ekle` | Skill (Nazlı, Ada ve Nesli'yi çalıştırır) | Türkçe, İngilizce ya da Almanca ürünü bastirkullan.com'a ekler: katalog, satılan dosyalar, siteye özel metin, vitrin görseli (vitrin görsel aracı); Nazlı, Ada ve Nesli (SEO) kontrolünden sonra sitede yayına alır. Skill `.claude/skills/siteye-ekle/` içinde. |
 
-Türkçe harfli komutların harfsiz eşleri de var: `/nazli`, `/asli`, `/nesli-urun`, `/nesli-arastirma`, `/ahmet-bastir`.
+Türkçe harfli komutların harfsiz eşleri de var: `/nazli`, `/asli`, `/nesli-urun`, `/nesli-arastirma`, `/ahmet-bastir`, `/etsy-urun`.
 
 Kim neye bakar (çağrıldığında ya da görev sonunda):
 - Metinler (yazılan, çevrilen; Etsy'ye ya da siteye yüklemeden önce): **Nazlı**. Nesli'nin ve Aslı'nın ürettiği metinler de Nazlı'dan geçer.
