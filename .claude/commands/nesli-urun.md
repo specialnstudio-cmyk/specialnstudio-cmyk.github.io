@@ -1,13 +1,13 @@
 ---
-description: "Nesli (ürün): ilan görsellerini tasarlar; platforma göre başlık, açıklama, SEO, etiket ve alt metinleri hazırlar"
-argument-hint: "[ürün ve platform; boşsa oturumun ürünü, Etsy]"
+description: "Nesli (ürün): Etsy dışındaki satış yerleri (kendi sitesi, Shopier) için ürün görselleri, başlık, açıklama, SEO ve alt metinler. Etsy için /etsy-gorsel ve /nesli-etsy"
+argument-hint: "[ürün ve platform: site ya da Shopier]"
 ---
 
-# /nesli-ürün: ilan görselleri ve ilan SEO'su
+# /nesli-ürün: Etsy dışı satış sayfası ve SEO
 
 Agent aracıyla **`nesli-urun`** ajanını çalıştır (`.claude/agents/nesli-urun.md`). Ajan türü listede yoksa (ajan dosyası bu oturum başladıktan sonra eklenmişse) `general-purpose` ajanını çalıştır ve ona ilk iş olarak `.claude/agents/nesli-urun.md` dosyasını okuyup oradaki role ve kurallara aynen uymasını söyle.
 
-Bu görevde Nesli, satın almayı tetikleyen ve en çok dikkat çeken ilan görsellerini tasarlar; ürünün yükleneceği platforma göre başlık, açıklama, SEO, etiket ve görsel alt metinlerini hazırlar.
+Bu görevde Nesli, Etsy dışındaki satış yerleri (kendi sitesi, Shopier) için ürün sayfasını hazırlar: platforma uygun görseller (Etsy'de hazır görsel varsa onları uyarlar), başlık, açıklama, SEO ve alt metinler. Etsy ilanı istenirse bu komutu çalıştırma: görseller için `/etsy-gorsel`, metinler için `/nesli-etsy`. Pinterest ve sosyal medya için `/nesli`.
 
 ## Ajana vereceğin bilgiler
 Ajan bu sohbeti görmez. Görev metnine şunları yaz:
