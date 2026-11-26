@@ -51,7 +51,7 @@ Mevcut ürünlerin biçimini örnek al, alanları aynı adlarla yaz. `tools/etsy
    - `tanim`: arama sonucu açıklaması, **120–160 karakter**; ürünün ne olduğu, kime göre olduğu, biçimi. Ürüne özgü olsun: temanın ya da varyasyonun adını ve bu ürünü ayıran en az bir içerik ayrıntısını söylesin. Sitedeki başka bir ürününkiyle aynı ya da neredeyse aynı olmasın.
    - `giris`: 2 paragraf, Etsy metninden FARKLI, "sen" hitabıyla.
    - Kategorinin `sss` listesi yoksa 2–4 soru-cevap ekle.
-6. **Arama başlığı (`<title>`):** sitedeki başlık `ad` + " | Bastır Kullan" olur (ek 16 karakter). Bu ikisi birlikte **60 karakteri geçiyorsa** `catalog/seo.json` → `"/urun/<kimlik>/"` → `baslik` alanına ekisiz, en çok 60 karakterlik tam bir başlık yaz (örn. `"Bekârlığa Veda Web Sitesi ve Parti Seti: Y2K Pop Gelin"`). Başlık aranan sözcükle başlasın, temanın ya da varyasyonun adı sonda olsun. Bu alan ekisiz kullanılır, `og:title` da onu izler; ürünün `ad`'ı ve H1'i değişmez. Açıklamayı da buraya yazma, açıklama `site_metin.json` → `tanim`'dadır.
+6. **Arama başlığı (`<title>`):** her yeni ürüne, uzunluğuna bakılmadan, `catalog/seo.json` → `"/urun/<kimlik>/"` → `baslik` alanına ekisiz bir başlık yazılır (Naz, 26 Kasım 2026). Başlığı 4. bölümde **Nesli (ürün)** önerir; sen yazma, `ad` + " | Bastır Kullan" otomatik başlığına da bırakma. Kurallar: 20–60 karakter, " | Bastır Kullan" eki yok, büyük harfle yazılmış başlık, emoji ve ünlem yok; İngilizce üründe sonda "(İngilizce)", Almanca üründe "(Almanca)", Türkçede işaret yok; aranan sözcükle başlasın, temanın ya da varyasyonun adı sonda olsun; başka hiçbir sayfanın başlığıyla aynı olmasın (örn. `"Bekârlığa Veda Web Sitesi ve Parti Seti: Y2K Pop Gelin"`). Başlığı elle `seo.json`'a yazma: `tools/seo_toplu.py` ile yaz (5. bölüm, yayın). Bu alan ekisiz kullanılır, `og:title` da onu izler; ürünün `ad`'ı ve H1'i değişmez. Açıklamayı da buraya yazma, açıklama `site_metin.json` → `tanim`'dadır.
 7. **Aynı türden birden fazla ürün** (aynı ürünün temaları, renkleri ya da varyasyonları) birlikte eklenince her birinin `tanim`, `ozet` ve başlığını ayrı yaz. Bir ürünün metnini kopyalayıp yalnızca adını değiştirme; her biri kendi temasını ve kendi farkını söylesin.
 8. **Etsy'ye özgü görseller:** üzerinde "Etsy" yazan ilan görselleri (Etsy'deki indirme adımları) sitede gösterilmez. `build.py` → `ETSY_YAZILI` listesine ekle.
 9. **Rehber bağlantısı:** `pages/rehber/` içinde konusu bu ürüne uyan bir yazı varsa ürünü o yazının `urunler:` satırına ekle.
@@ -83,7 +83,7 @@ Mevcut ürünlerin biçimini örnek al, alanları aynı adlarla yaz. `tools/etsy
    - dört satırlık özet doğru;
    - galeride Etsy yazılı görsel yok;
    - bütün görsellerde alt metin var;
-   - derlenmiş `<title>` ek dâhil en çok 60 karakter (geçiyorsa 1. bölümün 6. maddesindeki `seo.json` başlığını yaz);
+   - sayfa başlığı bu aşamada henüz otomatik (`ad` + " | Bastır Kullan"); bu normal: Nesli 4. bölümde önerir, Nazlı bakar, 5. bölümde `tools/seo_toplu.py` ile yazılır ve kontrol edilir;
    - açıklama 120–160 karakter;
    - bu ürünün açıklaması başka hiçbir sayfanınkiyle aynı değil: `grep -rhoP '<meta name="description" content="\K[^"]*' dist --include=index.html | sort | uniq -d` boş dönmeli;
    - sayfada tek H1 var;
@@ -99,7 +99,8 @@ Ajanları **Agent** aracıyla çalıştır (`nazli`, `ada`, `nesli-urun`). Ajan 
 3. **Nesli (SEO, `nesli-urun`, platform: kendi sitesi):**
    - başlık ve açıklamada aranan sözcükler;
    - `tanim` uzunluğu ve tıklatıcılığı;
-   - başlık 60 karakteri geçiyorsa, açıklama 120–160 karakter aralığının dışındaysa ya da açıklama başka bir ürününkine benziyorsa somut yeni metin;
+   - **her yeni ürün için sayfa başlığı** (1. bölümün 6. maddesindeki kurallarla), uzunluğuna bakılmadan; Google arama önerilerine göre;
+   - açıklama 120–160 karakter aralığının dışındaysa ya da başka bir ürününkine benziyorsa somut yeni metin;
    - etiketler;
    - görsel alt metinleri;
    - kategori seçimi;
@@ -111,15 +112,16 @@ Ajanları **Agent** aracıyla çalıştır (`nazli`, `ada`, `nesli-urun`). Ajan 
 ## 5. Yayına al
 
 1. `urunler.json`'da `"yayinda": false` satırını kaldır.
-2. `python3 build.py` çalıştır ve 3. adımın kontrol listesine bir kez daha hızlıca bak.
-3. **Kaydet ve gönder:**
+2. **Başlığı yaz:** onaylı başlığı `adres <TAB> başlık` satırı olarak bir dosyaya koy (örn. `/urun/<kimlik>/<TAB>Yeni başlık`) ve `python3 tools/seo_toplu.py <dosya>` çalıştır. Araç kuralları denetler, `catalog/seo.json`'a yazar, siteyi önce ve sonra derleyip yeni başlığın birebir tuttuğunu ve başka sayfanın değişmediğini kontrol eder. Araç hata verirse yayınlama: başlığı düzelt ya da Naz'a sor. Aynı anda birden çok ürün ekleniyorsa hepsini tek dosyada ver.
+3. `python3 build.py` çalıştır ve 3. bölümün kontrol listesine bir kez daha hızlıca bak. `python3 tools/seo_toplu.py --eksik` bu ürünü listelememeli.
+4. **Kaydet ve gönder:**
    - Önce `git pull --rebase origin main`. Pano ve Etsy köprüsü de `main`'e yazar; onların kayıtlarını silme.
    - Yalnızca bu ürünün dosyalarını ve onun için değişen katalog satırlarını ekle.
    - Tek bir commit at, mesajı "Ürün eklendi: <ad>" olsun; sonra `main`'e push et. `main`'e gelen her kayıt Cloudflare'de kendiliğinden yayınlanır (yaklaşık 2 dakika).
-4. Yaklaşık 3 dakika sonra `https://bastirkullan.com/urun/<kimlik>/` adresini kontrol et.
+5. Yaklaşık 3 dakika sonra `https://bastirkullan.com/urun/<kimlik>/` adresini kontrol et.
    - Site şifre kapısının arkasındaysa sayfa şifre ister. Bunu raporda söyle, ürün yine de hazırdır.
    - Bu oturumun ağı siteye ulaşamıyorsa Naz'dan sayfayı açıp bakmasını iste.
-5. `specialnstudio/PROJECT-STATUS.md`'ye tek satır ekle: tarih, ürün, kimlik.
+6. `specialnstudio/PROJECT-STATUS.md`'ye tek satır ekle: tarih, ürün, kimlik.
 
 ## 6. Rapor (Türkçe, kısa)
 
