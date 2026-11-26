@@ -39,7 +39,7 @@ Mevcut ürünlerin biçimini örnek al, alanları aynı adlarla yaz. `tools/etsy
 1. **Kimlik:** kısa, Türkçe harfsiz, tireli (örn. `kina-gecesi-seti`). Taslak varsa onun kimliğini kullan.
 2. **`catalog/urunler.json`:**
    - `ad`: Etsy başlığının kısa, okunur hâli; anahtar sözcük yığını olmaz.
-   - `ozet`: tek satır, sonu noktasız.
+   - `ozet`: tek satır, sonu noktasız; bu ürüne özgü (aşağıdaki "aynı türden birden fazla ürün" kuralı).
    - `kategori`: var olan kategorilerden uygunu.
    - `fiyat`: Etsy fiyatı × 1,20 (KDV dâhil), 2 ondalığa yuvarla. Fiyat belli değilse Naz'a sor.
    - `aciklama`: Etsy metni.
@@ -48,11 +48,13 @@ Mevcut ürünlerin biçimini örnek al, alanları aynı adlarla yaz. `tools/etsy
 3. **Satılan dosyalar:** `dosyalar/<kimlik>/` içine koy (tek dosya en çok 25 MB; büyükse böl ya da Naz'a söyle). `catalog/teslim.json`'a her dosya için `dosya`, `ad` (alıcının göreceği ad) ve `mb` yaz. Satılan dosya yoksa ürün yayına alınamaz: dur ve Naz'a hangi dosyanın gerektiğini söyle.
 4. **`catalog/ozellik.json`:** `tur`, `ton`, `yazdir` (yalnızca yazdırılabilirde), `bakista` (5–8 satır, gerçek bilgiler) ve `hizli`: `icerik`, `format`, `uyum`, `teslim`. Boş bırakılanlar türetilir; yanlış olacaksa yaz.
 5. **`catalog/site_metin.json`:** `urunler.<kimlik>`:
-   - `tanim`: arama sonucu açıklaması, en çok 155 karakter; ürünün ne olduğu, kime göre olduğu, biçimi.
+   - `tanim`: arama sonucu açıklaması, **120–160 karakter**; ürünün ne olduğu, kime göre olduğu, biçimi. Ürüne özgü olsun: temanın ya da varyasyonun adını ve bu ürünü ayıran en az bir içerik ayrıntısını söylesin. Sitedeki başka bir ürününkiyle aynı ya da neredeyse aynı olmasın.
    - `giris`: 2 paragraf, Etsy metninden FARKLI, "sen" hitabıyla.
    - Kategorinin `sss` listesi yoksa 2–4 soru-cevap ekle.
-6. **Etsy'ye özgü görseller:** üzerinde "Etsy" yazan ilan görselleri (Etsy'deki indirme adımları) sitede gösterilmez. `build.py` → `ETSY_YAZILI` listesine ekle.
-7. **Rehber bağlantısı:** `pages/rehber/` içinde konusu bu ürüne uyan bir yazı varsa ürünü o yazının `urunler:` satırına ekle.
+6. **Arama başlığı (`<title>`):** sitedeki başlık `ad` + " | Bastır Kullan" olur (ek 16 karakter). Bu ikisi birlikte **60 karakteri geçiyorsa** `catalog/seo.json` → `"/urun/<kimlik>/"` → `baslik` alanına ekisiz, en çok 60 karakterlik tam bir başlık yaz (örn. `"Bekârlığa Veda Web Sitesi ve Parti Seti: Y2K Pop Gelin"`). Başlık aranan sözcükle başlasın, temanın ya da varyasyonun adı sonda olsun. Bu alan ekisiz kullanılır, `og:title` da onu izler; ürünün `ad`'ı ve H1'i değişmez. Açıklamayı da buraya yazma, açıklama `site_metin.json` → `tanim`'dadır.
+7. **Aynı türden birden fazla ürün** (aynı ürünün temaları, renkleri ya da varyasyonları) birlikte eklenince her birinin `tanim`, `ozet` ve başlığını ayrı yaz. Bir ürünün metnini kopyalayıp yalnızca adını değiştirme; her biri kendi temasını ve kendi farkını söylesin.
+8. **Etsy'ye özgü görseller:** üzerinde "Etsy" yazan ilan görselleri (Etsy'deki indirme adımları) sitede gösterilmez. `build.py` → `ETSY_YAZILI` listesine ekle.
+9. **Rehber bağlantısı:** `pages/rehber/` içinde konusu bu ürüne uyan bir yazı varsa ürünü o yazının `urunler:` satırına ekle.
 
 ## 2. Kapak görselleri
 
@@ -81,8 +83,9 @@ Mevcut ürünlerin biçimini örnek al, alanları aynı adlarla yaz. `tools/etsy
    - dört satırlık özet doğru;
    - galeride Etsy yazılı görsel yok;
    - bütün görsellerde alt metin var;
-   - başlık (`<title>`) 65 karakteri geçmiyor;
-   - açıklama 155 karakteri geçmiyor;
+   - derlenmiş `<title>` ek dâhil en çok 60 karakter (geçiyorsa 1. bölümün 6. maddesindeki `seo.json` başlığını yaz);
+   - açıklama 120–160 karakter;
+   - bu ürünün açıklaması başka hiçbir sayfanınkiyle aynı değil: `grep -rhoP '<meta name="description" content="\K[^"]*' dist --include=index.html | sort | uniq -d` boş dönmeli;
    - sayfada tek H1 var;
    - JSON-LD geçerli (Product, Offer, FAQPage);
    - ürün site haritasında görselleriyle yer alıyor.
@@ -96,6 +99,7 @@ Ajanları **Agent** aracıyla çalıştır (`nazli`, `ada`, `nesli-urun`). Ajan 
 3. **Nesli (SEO, `nesli-urun`, platform: kendi sitesi):**
    - başlık ve açıklamada aranan sözcükler;
    - `tanim` uzunluğu ve tıklatıcılığı;
+   - başlık 60 karakteri geçiyorsa, açıklama 120–160 karakter aralığının dışındaysa ya da açıklama başka bir ürününkine benziyorsa somut yeni metin;
    - etiketler;
    - görsel alt metinleri;
    - kategori seçimi;
